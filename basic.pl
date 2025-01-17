@@ -191,3 +191,9 @@ query(yield, Decision) :-
 
 query(yield, Decision) :-
     Decision = go.
+
+%Test Queries
+% query(left, X). or right or straight
+% query(speed, X).
+% query(lights, X).
+% query(yeild, X).
