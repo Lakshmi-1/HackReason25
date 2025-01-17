@@ -1,6 +1,6 @@
 % Facts
 car_speed(30).                             % Current speed of the car (km/h)
-traffic_signal(yellow).
+traffic_signal(green).
 stop_sign(absent).
 curr_time(day).
 weather(icy).
