@@ -1,12 +1,10 @@
 % Facts
 car(left, 6, 60).           
 roadblock(right).           
--legal_crossing(left).      
+legal_crossing(left).      
 num_pedestrians(left, 5).   
 num_animals(left, 6).       
-speed_limit(50).            
-dui(true).                 
-phone_use(true).           
+speed_limit(50).                      
 
 % Rules
 above_speed_limit :- 
@@ -22,10 +20,10 @@ illegal_driving(PhoneUse) :- phone_use(PhoneUse), PhoneUse = true.
 illegal_driving(Speeding) :- above_speed_limit, Speeding = true.
 
 dui_value(1) :- dui(true).
-dui_value(0) :- dui(false).
+dui_value(0) :- not dui(true).
 
 phone_value(1) :- phone_use(true).
-phone_value(0) :- phone_use(false).
+phone_value(0) :- not phone_use(true).
 
 speed_value(1) :- above_speed_limit.
 speed_value(0) :- not above_speed_limit.
@@ -85,8 +83,8 @@ harm_swerve(H) :-
     opposite_lane(Lane, Opposite),
     pedestrians(Opposite, PH), 
     animals(Opposite, AH),
-    passenger_weight(Lane, PaW),
-    passenger_weight(Lane, PW),
+    passenger_weight(Opposite, PaW),
+    pedestrian_weight(Opposite, PW),
     animal_weight(AW),
     human_weight(HW),
     passengers_harmed(Opposite, PaH),
